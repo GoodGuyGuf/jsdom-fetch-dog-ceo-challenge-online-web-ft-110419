@@ -6,7 +6,7 @@
     <script src="src/index.js" charset="utf-8"></script>
   </head>
   <body>
-    <h1>Dog CEO</h1>
+    <h1 id="heading">Dog CEO</h1>
 
     <div id="dog-image-container">
       <!-- images here -->
@@ -15,10 +15,11 @@
     <hr>
     <label for="select-breed">Filter Breeds That Start with:</label>
     <select id="breed-dropdown" name="select-breed">
-      <option value="a">a</option>
-      <option value="b">b</option>
-      <option value="c">c</option>
-      <option value="d">d</option>
+      <option value="default">Please Select a Letter</option>
+      <option class="letter" value="a">a</option>
+      <option class="letter" value="b">b</option>
+      <option class="letter" value="c">c</option>
+      <option class="letter" value="d">d</option>
     </select>
 
     <ul id="dog-breeds">
