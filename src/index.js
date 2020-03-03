@@ -41,32 +41,33 @@ function fetchList () {
     parseList(json)
     });
 }
-// move json into arrat to iterate over for challenge four.
+
 function parseList (json) {
     let ul = document.getElementById("dog-breeds");
     
-    for (let i = 0; i < 92; i++) { // we increment through the object keys of json.message at the index of i, as there are 92 breeds.
+    for (let i = 0; i < 92; i++) { 
         let li = document.createElement('li');
         li.className = "breed";
         li.innerText = `${Object.keys(json.message)[i]}`,
-        li.addEventListener('click', () => li.style.color = "#FF0000");
-        ul.appendChild(li);
+        li.addEventListener('click', () => li.style.color = "#FF0000"); // when the li is created, that is when we add an event listener to
+        ul.appendChild(li); // that specific li. Then we append it to the ul.
     }
-    aFilter()
+    letterFilter()
 }
+//-----------Challenge-two-three-End----------------------//
 
-//-----------Challenge-End--------------------------------//
+
 
 //-----------Challenge-Four-------------------------------//
-function aFilter (){
+function letterFilter (){
     let dropdown = document.getElementById("breed-dropdown")
     let allLis = document.getElementsByTagName("li")
 
     dropdown.addEventListener("change", function(e) {
         for (i = 0; i < allLis.length; i++) {
-            if (dropdown.value === "b" && allLis.item(i).innerText[0] === "b") {
-                allLis[i].style.display = 'list-item';
-            } else if (dropdown.value === "a" && allLis.item(i).innerText[0] === "a") {
+            if (dropdown.value === "b" && allLis.item(i).innerText[0] === "b") { // if the dropdown value is equal to a letter, 
+                allLis[i].style.display = 'list-item'; // and the htmlCollection item at (i) first letter[0] is === "letter"
+            } else if (dropdown.value === "a" && allLis.item(i).innerText[0] === "a") { // set the style.display to list-item
                 allLis[i].style.display = 'list-item';
             } else if (dropdown.value === "c" && allLis.item(i).innerText[0] === "c") {
                 allLis[i].style.display = 'list-item';
@@ -75,7 +76,7 @@ function aFilter (){
             } else if (dropdown.value === "default") {
                 allLis[i].style.display = "list-item"
             } else {
-                allLis[i].style.display = "none";
+                allLis[i].style.display = "none"; // else do not show the dogs starting with the other letters
             }
         }
     })
